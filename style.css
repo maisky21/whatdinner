@@ -164,11 +164,11 @@ body {
     overflow: hidden;
 }
 
-.post-header { padding: 8px 12px; display: flex; align-items: center; gap: 10px; }
-.user-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--insta-gradient); display: flex; justify-content: center; align-items: center; font-size: 14px; }
+.post-header { padding: 6px 12px; display: flex; align-items: center; gap: 8px; }
+.user-avatar { width: 26px; height: 26px; border-radius: 50%; background: var(--insta-gradient); display: flex; justify-content: center; align-items: center; font-size: 13px; }
 .user-info { flex: 1; }
 .username { font-size: 13px; font-weight: 600; }
-.location { font-size: 11px; color: var(--secondary-text); }
+.location { font-size: 10px; color: var(--secondary-text); }
 
 .post-media {
     width: 100%;
@@ -177,31 +177,31 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 100px;
+    font-size: 90px;
 }
 
 @media (prefers-color-scheme: dark) {
     .post-media { background: #2d242d; }
 }
 
-.post-actions { padding: 8px 12px; display: flex; justify-content: space-between; font-size: 20px; }
-.main-actions { display: flex; gap: 14px; }
+.post-actions { padding: 6px 12px; display: flex; justify-content: space-between; font-size: 18px; }
+.main-actions { display: flex; gap: 12px; }
 
-.post-content { padding: 0 12px 12px 12px; }
-.likes-count { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-.caption { font-size: 13px; line-height: 1.4; }
+.post-content { padding: 0 12px 10px 12px; }
+.likes-count { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+.caption { font-size: 13px; line-height: 1.35; }
 .caption-user { font-weight: 600; margin-right: 6px; }
 .post-tag { color: #00376b; }
-.post-menu-name { font-weight: 700; margin: 2px 0; display: block; }
-.post-description { margin-bottom: 6px; }
-.post-lucky-tip { font-size: 12px; color: var(--secondary-text); padding: 8px; background: rgba(0,0,0,0.03); border-radius: 8px; border-left: 3px solid var(--insta-gradient); }
+.post-menu-name { font-weight: 700; margin: 1px 0; display: block; }
+.post-description { margin-bottom: 4px; }
+.post-lucky-tip { font-size: 11px; color: var(--secondary-text); padding: 6px 10px; background: rgba(0,0,0,0.03); border-radius: 6px; border-left: 3px solid var(--insta-gradient); }
 
 @media (prefers-color-scheme: dark) {
     .post-lucky-tip { background: rgba(255,255,255,0.05); }
 }
 
-.post-time { font-size: 9px; color: var(--secondary-text); text-transform: uppercase; margin-top: 6px; }
-.post-footer-btn { padding: 12px; border-top: 1px solid rgba(0,0,0,0.05); }
+.post-time { font-size: 9px; color: var(--secondary-text); text-transform: uppercase; margin-top: 4px; }
+.post-footer-btn { padding: 8px 12px; border-top: 1px solid rgba(0,0,0,0.05); }
 
 /* Buttons */
 .primary-btn { width: 100%; padding: 14px; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; background: white; color: #a18cd1; }
