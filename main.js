@@ -198,7 +198,7 @@ const i18n = {
         cat_all: 'All', cat_kr: 'Korean', cat_we: 'Western', cat_jp: 'Japanese', cat_ch: 'Chinese', cat_si: 'Simple',
         main_title: 'Gourmet Fortune', main_subtitle: 'What is your destiny for dinner tonight?', btn_draw: 'Draw Fortune',
         location: 'Space of Taste', likes_prefix: 'Likes', likes_suffix: '', just_now: 'Just now',
-        btn_retry: 'Check Other Fortune', footer_about: 'About', footer_privacy: 'Privacy', footer_terms: 'Terms',
+        btn_retry: 'Draw Again', footer_about: 'About', footer_privacy: 'Privacy', footer_terms: 'Terms',
         lucky_tip_label: 'Today\'s Lucky Tip', side_dish_label: 'Perfect Side Dish', recommended_label: 'Today\'s Pick'
     }
 };
@@ -283,6 +283,11 @@ function updateUIStrings() {
         const key = el.getAttribute('data-i18n');
         if (texts[key]) el.textContent = texts[key];
     });
+    
+    // 만약 결과 화면이 켜져 있다면, 현재 메뉴의 텍스트도 업데이트
+    if (!resultScreen.classList.contains('hidden') && window.currentMenu) {
+        updateResultUI(window.currentMenu);
+    }
 }
 
 // 카테고리 선택
@@ -305,24 +310,7 @@ function getRandomMenu() {
     return filteredMenu[randomIndex];
 }
 
-function showRecommendation() {
-    playSound('whoosh');
-    
-    heartBtn.classList.remove('fas', 'liked');
-    heartBtn.classList.add('far');
-
-    homeScreen.classList.add('hidden');
-    resultScreen.classList.remove('hidden');
-    
-    // 애니메이션 리셋
-    resultCard.classList.remove('animate-slide-up');
-    menuEmoji.classList.remove('animate-pop');
-    void resultCard.offsetWidth;
-    resultCard.classList.add('animate-slide-up');
-    menuEmoji.classList.add('animate-pop');
-    
-    const menu = getRandomMenu();
-    
+function updateResultUI(menu) {
     // 데이터 업데이트
     menuEmoji.textContent = menu.icon;
     menuCategoryTag.textContent = `#${currentLang === 'ko' ? menu.category : menu.category}`;
@@ -343,8 +331,30 @@ function showRecommendation() {
     
     menuLuckyTipElem.innerHTML = `
         <div class="tip-section"><strong>${tipLabel}:</strong> ${tipContent}</div>
-        <div class="side-section" style="margin-top: 8px;"><strong>${sideLabel}:</strong> ${sideContent}</div>
+        <div class="side-section" style="margin-top: 6px;"><strong>${sideLabel}:</strong> ${sideContent}</div>
     `;
+}
+
+function showRecommendation() {
+    playSound('whoosh');
+    
+    heartBtn.classList.remove('fas', 'liked');
+    heartBtn.classList.add('far');
+
+    homeScreen.classList.add('hidden');
+    resultScreen.classList.remove('hidden');
+    
+    // 애니메이션 리셋
+    resultCard.classList.remove('animate-slide-up');
+    menuEmoji.classList.remove('animate-pop');
+    void resultCard.offsetWidth;
+    resultCard.classList.add('animate-slide-up');
+    menuEmoji.classList.add('animate-pop');
+    
+    const menu = getRandomMenu();
+    window.currentMenu = menu; // 현재 메뉴 전역 저장 (언어 전환 시 참조)
+    
+    updateResultUI(menu);
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
