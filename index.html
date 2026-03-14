@@ -72,7 +72,13 @@
 
                 <!-- Post Image (Emoji Container) -->
                 <div class="post-media emoji-container">
+                    <div class="soft-circle"></div>
                     <span id="menu-emoji"></span>
+                </div>
+
+                <!-- Menu Title Section (Large & Bold) -->
+                <div class="menu-title-section">
+                    <h2 id="menu-name">메뉴명</h2>
                 </div>
 
                 <!-- Post Actions -->
@@ -93,9 +99,11 @@
                     <div class="caption">
                         <span class="caption-user">cosmic_fortune</span>
                         <span id="menu-category" class="post-tag">#한식</span>
-                        <span id="menu-name" class="post-menu-name">메뉴명</span>
+                        <span class="recommended-text" data-i18n="recommended_label">오늘의 추천 메뉴</span>
                         <p id="menu-fortune" class="post-description">오늘 당신의 미식 운세는...</p>
-                        <p id="menu-lucky-tip" class="post-lucky-tip">오늘의 행운 팁: ...</p>
+                        <div id="menu-lucky-tip" class="post-lucky-tip">
+                            <!-- JS will populate this -->
+                        </div>
                     </div>
                     <div class="post-time" data-i18n="just_now">방금 전</div>
                 </div>

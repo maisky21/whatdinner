@@ -42,14 +42,14 @@ const i18n = {
         main_title: '오늘의 미식 운세', main_subtitle: '오늘 저녁, 당신의 운명이 이끄는 맛은?', btn_draw: '운세 뽑기',
         location: '미식의 우주', likes_prefix: '좋아요', likes_suffix: '개', just_now: '방금 전',
         btn_retry: '다른 운세 확인하기', footer_about: '서비스 소개', footer_privacy: '개인정보처리방침', footer_terms: '이용약관',
-        lucky_tip_label: '오늘의 행운 팁', side_dish_label: '함께하면 좋은 사이드'
+        lucky_tip_label: '오늘의 행운 팁', side_dish_label: '찰떡궁합 사이드 메뉴', recommended_label: '오늘의 추천 메뉴'
     },
     en: {
         cat_all: 'All', cat_kr: 'Korean', cat_we: 'Western', cat_jp: 'Japanese', cat_ch: 'Chinese', cat_si: 'Simple',
         main_title: 'Gourmet Fortune', main_subtitle: 'What is your destiny for dinner tonight?', btn_draw: 'Draw Fortune',
         location: 'Space of Taste', likes_prefix: 'Likes', likes_suffix: '', just_now: 'Just now',
         btn_retry: 'Check Other Fortune', footer_about: 'About', footer_privacy: 'Privacy', footer_terms: 'Terms',
-        lucky_tip_label: 'Today\'s Lucky Tip', side_dish_label: 'Recommended Side Dish'
+        lucky_tip_label: 'Today\'s Lucky Tip', side_dish_label: 'Perfect Side Dish', recommended_label: 'Today\'s Pick'
     }
 };
 
@@ -131,7 +131,7 @@ function showRecommendation() {
     
     menuLuckyTipElem.innerHTML = `
         <div class="tip-section"><strong>${tipLabel}:</strong> ${tipContent}</div>
-        <div class="side-section" style="margin-top: 8px;"><strong>${sideLabel}:</strong> ${sideContent}</div>
+        <div class="side-section" style="margin-top: 6px;"><strong>${sideLabel}:</strong> ${sideContent}</div>
     `;
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
