@@ -186,15 +186,15 @@ body {
 
 .post-content { padding: 0 12px 10px 12px; flex-shrink: 0; }
 .likes-count { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
-.caption { font-size: 13px; line-height: 1.4; }
+.caption { font-size: 13px; line-height: 1.6; letter-spacing: -0.01em; }
 .caption-user { font-weight: 600; margin-right: 6px; }
 .post-tag { color: #00376b; }
-.post-description { margin: 4px 0; }
+.post-description { margin: 8px 0; word-break: keep-all; }
 
 .post-lucky-tip { 
-    font-size: 11px; color: var(--secondary-text); padding: 10px; 
+    font-size: 11.5px; color: var(--secondary-text); padding: 12px; 
     background: rgba(161, 140, 209, 0.06); border-radius: 8px; border-left: 3px solid var(--btn-purple); 
-    line-height: 1.4; margin-top: 8px;
+    line-height: 1.6; margin-top: 12px; word-break: keep-all;
 }
 
 @media (prefers-color-scheme: dark) {
