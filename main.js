@@ -60,6 +60,12 @@ function getRandomMenu() {
     return MENU_DATA[randomIndex];
 }
 
+// 이미지 URL 생성 함수
+function generateImageUrl(menu) {
+    const seed = Math.random();
+    return `https://image.pollinations.ai/prompt/${encodeURIComponent(menu.engName + ' professional food photography')}?width=1080&height=1080&nologo=true&seed=${seed}`;
+}
+
 async function showRecommendation() {
     // 화면 전환
     homeScreen.classList.add('hidden');
@@ -77,8 +83,7 @@ async function showRecommendation() {
     menuFortune.textContent = menu.fortune;
     
     // 이미지 로드 (Pollinations.ai)
-    const seed = Math.floor(Math.random() * 100000);
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(menu.engName + ' professional food photography, high quality')}?width=1080&height=1080&nologo=true&seed=${seed}`;
+    const imageUrl = generateImageUrl(menu);
     
     // 이미지 객체 생성하여 프리로드
     const img = new Image();
