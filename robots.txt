@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maisky21.github.io/whatdinner/sitemap.xml
