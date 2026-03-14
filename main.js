@@ -142,47 +142,10 @@ const MENU_DATA = [
     },
     { 
         name: '딤섬', name_en: 'Dim Sum', icon: '🥟', category: '중식', 
-        fortune: '작은 만두 피 속에 풍부한 육즙이 담겨있듯, 조만간 당신의 노력이 알찬 성과물로 나타날 예정입니다. 디테일에 신경을 쓴다면 완벽함에 다가갈 수 있습니다.', 
+        fortune: '작은 만두 피 속에 풍부한 육즙이 담겨있듯, 조만간 당신의 노력이 알찬 성과물로 나타날 예정입니다. 디테일에 신경을 쓴다면 완벽함에 다가가갈 수 있습니다.', 
         fortune_en: 'As rich juice is contained within skins, your efforts will soon appear as substantial results. Paying attention to details will bring you closer to perfection.', 
         luckyTip: '육즙이 터지지 않게 조심스럽게 한 입에 즐겨보세요.', luckyTip_en: 'Enjoy it in one bite, being careful not to spill the juice.', 
         sideDish: '자스민 차', sideDish_en: 'Jasmine Tea', bgColor: '#f5fff5' 
-    },
-
-    // 아시안 (New Category)
-    { 
-        name: '쌀국수', name_en: 'Pho', icon: '🍜', category: '아시안', 
-        fortune: '맑고 깊은 육수처럼 오늘 당신의 통찰력이 매우 깊어지는 날입니다. 복잡한 상황에서도 핵심을 꿰뚫어 보는 지혜가 생길 거예요. 몸을 따뜻하게 유지할 때 운이 더 좋아집니다.', 
-        fortune_en: 'Like the clear and deep broth, your insight is very sharp today. Wisdom to see through complex situations will emerge. Luck increases when you keep your body warm.', 
-        luckyTip: '고수를 듬뿍 넣어 이국적인 풍미를 즐겨보세요.', luckyTip_en: 'Add plenty of cilantro for an exotic flavor.', 
-        sideDish: '짜조', sideDish_en: 'Spring Rolls', bgColor: '#f5fffb' 
-    },
-    { 
-        name: '팟타이', name_en: 'Pad Thai', icon: '🥡', category: '아시안', 
-        fortune: '달콤, 새콤, 짭짤한 맛의 조화처럼 오늘 당신에게는 다채로운 즐거움이 가득할 것입니다. 따분할 틈 없는 유쾌한 하루가 예상되니 에너지를 마음껏 발산해보세요.', 
-        fortune_en: 'Like the harmony of sweet, sour, and salty flavors, colorful joys will fill your day. Expect a pleasant day without a moment of boredom.', 
-        luckyTip: '땅콩 가루를 듬뿍 뿌려 고소함을 극대화하세요.', luckyTip_en: 'Sprinkle plenty of peanut powder for nuttiness.', 
-        sideDish: '텃만쿵', sideDish_en: 'Shrimp Cakes', bgColor: '#fffdf5' 
-    },
-    { 
-        name: '나시고랭', name_en: 'Nasi Goreng', icon: '🍛', category: '아시안', 
-        fortune: '풍부한 향신료의 매력처럼 당신의 숨겨진 재능이 주위의 이목을 끌게 됩니다. 자신을 표현하는 데 주저하지 마세요. 당신의 독특함이 곧 경쟁력이 되는 날입니다.', 
-        fortune_en: 'Like the charm of rich spices, your hidden talents will attract attention. Don\'t hesitate to express yourself. Your uniqueness is your strength today.', 
-        luckyTip: '반숙 계란 후라이를 터뜨려 밥과 함께 비벼 드세요.', luckyTip_en: 'Break the sunny-side-up egg and mix it with the rice.', 
-        sideDish: '사테', sideDish_en: 'Satay', bgColor: '#fffaf5' 
-    },
-    { 
-        name: '분짜', name_en: 'Bun Cha', icon: '🥗', category: '아시안', 
-        fortune: '새콤한 소스에 적셔 먹는 신선함처럼 정체된 일상에 활력을 불어넣을 새로운 소식이 들려옵니다. 가벼운 발걸음으로 새로운 장소를 방문해보는 것도 좋습니다.', 
-        fortune_en: 'Like the freshness of dipping in sour sauce, new news will energize your stagnant daily life. It\'s also good to visit new places with light steps.', 
-        luckyTip: '숯불 고기와 야채를 듬뿍 곁들여 풍성하게 즐기세요.', luckyTip_en: 'Enjoy with plenty of grilled meat and vegetables.', 
-        sideDish: '넴', sideDish_en: 'Nem', bgColor: '#f5fff5' 
-    },
-    { 
-        name: '똠얌꿍', name_en: 'Tom Yum Goong', icon: '🍲', category: '아시안', 
-        fortune: '강렬하고 독특한 풍미처럼 오늘 당신은 독보적인 존재감을 과시하게 됩니다. 남들이 생각지 못한 창의적인 해결책으로 위기를 기회로 바꿀 수 있는 운세입니다.', 
-        fortune_en: 'Like the intense and unique flavor, you will show an unrivaled presence today. You can turn crises into opportunities with creative solutions.', 
-        luckyTip: '매콤하고 시큼한 국물로 입맛을 확실히 깨워보세요.', luckyTip_en: 'Wake up your appetite with the spicy and sour soup.', 
-        sideDish: '공공치엔', sideDish_en: 'Morning Glory Stir-fry', bgColor: '#fff5f5' 
     },
 
     // 간단식
@@ -225,14 +188,14 @@ const MENU_DATA = [
 
 const i18n = {
     ko: {
-        cat_all: '전체', cat_kr: '한식', cat_we: '양식', cat_jp: '일식', cat_ch: '중식', cat_si: '간단식', cat_as: '아시안',
+        cat_all: '전체', cat_kr: '한식', cat_we: '양식', cat_jp: '일식', cat_ch: '중식', cat_si: '간단식',
         main_title: '오늘의 미식 운세', main_subtitle: '오늘 저녁, 당신의 운명이 이끄는 맛은?', btn_draw: '운세 뽑기',
         location: '미식의 우주', likes_prefix: '좋아요', likes_suffix: '개', just_now: '방금 전',
         btn_retry: '다른 운세 확인하기', footer_about: '서비스 소개', footer_privacy: '개인정보처리방침', footer_terms: '이용약관',
         lucky_tip_label: '오늘의 행운 팁', side_dish_label: '찰떡궁합 사이드 메뉴', recommended_label: '오늘의 추천 메뉴'
     },
     en: {
-        cat_all: 'All', cat_kr: 'Korean', cat_we: 'Western', cat_jp: 'Japanese', cat_ch: 'Chinese', cat_si: 'Simple', cat_as: 'Asian',
+        cat_all: 'All', cat_kr: 'Korean', cat_we: 'Western', cat_jp: 'Japanese', cat_ch: 'Chinese', cat_si: 'Simple',
         main_title: 'Gourmet Fortune', main_subtitle: 'What is your destiny for dinner tonight?', btn_draw: 'Draw Fortune',
         location: 'Space of Taste', likes_prefix: 'Likes', likes_suffix: '', just_now: 'Just now',
         btn_retry: 'Check Other Fortune', footer_about: 'About', footer_privacy: 'Privacy', footer_terms: 'Terms',
@@ -255,7 +218,7 @@ function playSound(type) {
     const sound = sounds[type];
     if (sound) {
         sound.currentTime = 0;
-        sound.volume = 0.1; // Requirement: Fixed at 0.1
+        sound.volume = 0.1; 
         sound.play().catch(e => console.log('Audio playback blocked by browser policy'));
     }
 }
@@ -370,7 +333,7 @@ function showRecommendation() {
     if (!isDarkMode) {
         postMedia.style.backgroundColor = menu.bgColor || '#fdf2f8';
     } else {
-        postMedia.style.backgroundColor = ''; // 다크모드에서는 CSS 변수 사용
+        postMedia.style.backgroundColor = ''; 
     }
     
     const tipLabel = i18n[currentLang].lucky_tip_label;
