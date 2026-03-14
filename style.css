@@ -209,7 +209,7 @@ body.dark-theme .post-tag { color: #D4BFFF; }
 .post-footer-btn { padding: 8px 12px; border-top: 1px solid rgba(255,255,255,0.05); flex-shrink: 0; }
 
 /* Buttons */
-.primary-btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 700; cursor: pointer; background: white; color: var(--btn-purple); }
+.primary-btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 1.4rem; font-weight: 700; cursor: pointer; background: #F3E5F5; color: #4A148C; box-shadow: 0 4px 15px rgba(74, 20, 140, 0.15); }
 .secondary-btn { width: 100%; padding: 8px; border: 1px solid #dbdbdb; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; background: transparent; color: var(--text-color); }
 
 body.dark-theme .secondary-btn { border-color: rgba(255,255,255,0.1); }
