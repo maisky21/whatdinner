@@ -133,8 +133,8 @@ body {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Move up for compact feel */
-    padding: 15px;
+    align-items: center;
+    padding: 10px 15px;
 }
 
 /* Intro Card */
@@ -194,10 +194,19 @@ body {
 .post-tag { color: #00376b; }
 .post-menu-name { font-weight: 700; margin: 1px 0; display: block; }
 .post-description { margin-bottom: 4px; }
-.post-lucky-tip { font-size: 11px; color: var(--secondary-text); padding: 6px 10px; background: rgba(0,0,0,0.03); border-radius: 6px; border-left: 3px solid var(--insta-gradient); }
+.post-lucky-tip { 
+    font-size: 11.5px; 
+    color: var(--secondary-text); 
+    padding: 10px 12px; 
+    background: rgba(161, 140, 209, 0.08); 
+    border-radius: 8px; 
+    border-left: 4px solid #a18cd1; 
+    line-height: 1.5;
+    margin-top: 8px;
+}
 
 @media (prefers-color-scheme: dark) {
-    .post-lucky-tip { background: rgba(255,255,255,0.05); }
+    .post-lucky-tip { background: rgba(255,255,255,0.05); border-left-color: #fbc2eb; }
 }
 
 .post-time { font-size: 9px; color: var(--secondary-text); text-transform: uppercase; margin-top: 4px; }
