@@ -210,7 +210,7 @@ body.dark-theme .post-tag { color: #D4BFFF; }
 
 /* Buttons */
 .primary-btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 1.4rem; font-weight: 700; cursor: pointer; background: #F3E5F5; color: #4A148C; box-shadow: 0 4px 15px rgba(74, 20, 140, 0.15); }
-.secondary-btn { width: 100%; padding: 8px; border: 1px solid #dbdbdb; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; background: transparent; color: var(--text-color); }
+.secondary-btn { width: 100%; padding: 16px; border: 1px solid #dbdbdb; border-radius: 12px; font-size: 1.2rem; font-weight: 700; cursor: pointer; background: transparent; color: var(--text-color); }
 
 body.dark-theme .secondary-btn { border-color: rgba(255,255,255,0.1); }
 @media (prefers-color-scheme: dark) {
