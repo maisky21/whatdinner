@@ -311,9 +311,19 @@ function getRandomMenu() {
 }
 
 function updateResultUI(menu) {
+    // 카테고리 영문 매핑
+    const categoryMap = {
+        '한식': 'Korean',
+        '양식': 'Western',
+        '일식': 'Japanese',
+        '중식': 'Chinese',
+        '간단식': 'Simple'
+    };
+
     // 데이터 업데이트
     menuEmoji.textContent = menu.icon;
-    menuCategoryTag.textContent = `#${currentLang === 'ko' ? menu.category : menu.category}`;
+    const categoryText = currentLang === 'ko' ? menu.category : (categoryMap[menu.category] || menu.category);
+    menuCategoryTag.textContent = `#${categoryText}`;
     menuNameElem.textContent = currentLang === 'ko' ? menu.name : menu.name_en;
     menuFortuneElem.textContent = currentLang === 'ko' ? menu.fortune : menu.fortune_en;
     
