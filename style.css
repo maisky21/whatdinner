@@ -8,15 +8,27 @@
     --accent-color: #0095f6;
     --border-radius: 12px;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --header-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Overrides (When .dark-theme class is applied) */
+body.dark-theme {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #fafafa;
+    --secondary-text: #a8a8a8;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --header-bg: rgba(0, 0, 0, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
+    body:not(.light-theme) {
         --bg-color: #121212;
         --card-bg: #1e1e1e;
         --text-color: #fafafa;
         --secondary-text: #a8a8a8;
         --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        --header-bg: rgba(0, 0, 0, 0.3);
     }
 }
 
@@ -25,6 +37,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -49,8 +62,9 @@ body {
 /* Header */
 .app-header {
     width: 100%;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--header-bg);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding: 10px 15px;
 }
@@ -61,10 +75,29 @@ body {
     align-items: center;
 }
 
+.logo-link {
+    text-decoration: none;
+}
+
 .logo {
     font-weight: 800;
     color: white;
     font-size: 1.1rem;
+    display: block;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
 }
 
 .lang-btn {
@@ -78,12 +111,27 @@ body {
     cursor: pointer;
 }
 
-/* Story Tabs */
+/* Shine Animation */
+@keyframes shine {
+    0% { background-position: -100px; }
+    40%, 100% { background-position: 140px; }
+}
+
+.shine-effect {
+    background: linear-gradient(to right, #fff 0%, #fff 10%, #ffeb3b 20%, #fff 30%, #fff 100%);
+    background-size: 200px auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+}
+
+/* Story Tabs - Centered */
 .story-container {
     width: 100%;
     padding: 10px 10px;
     display: flex;
     gap: 12px;
+    justify-content: center; /* Requirement: Center aligned */
     overflow-x: auto;
     background: rgba(255, 255, 255, 0.05);
     scrollbar-width: none;
@@ -102,8 +150,8 @@ body {
 }
 
 .story-circle {
-    width: 56px;
-    height: 56px;
+    width: 52px; /* Slightly smaller for 7 items */
+    height: 52px;
     border-radius: 50%;
     padding: 2.5px;
     background: #dbdbdb;
@@ -118,15 +166,15 @@ body {
 .story-circle::after {
     content: '';
     position: absolute;
-    width: 51px;
-    height: 51px;
+    width: 47px;
+    height: 47px;
     background: var(--card-bg);
     border-radius: 50%;
     z-index: 1;
 }
 
-.story-icon { font-size: 24px; position: relative; z-index: 2; }
-.story-label { font-size: 10px; color: var(--text-color); font-weight: 500; }
+.story-icon { font-size: 22px; position: relative; z-index: 2; }
+.story-label { font-size: 9px; color: var(--text-color); font-weight: 500; }
 
 /* Main Content */
 .centered-content {
@@ -152,10 +200,10 @@ body {
     margin-top: 40px;
 }
 
-.main-title { font-size: 1.8rem; margin-bottom: 10px; color: white; }
+.main-title { font-size: 1.8rem; margin-bottom: 10px; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.1); }
 .subtitle { color: white; margin-bottom: 30px; font-size: 1rem; opacity: 0.9; }
 
-/* Compact Insta Post */
+/* Insta Post */
 .insta-post {
     background: var(--card-bg);
     border-radius: var(--border-radius);
@@ -173,14 +221,13 @@ body {
 
 .post-media {
     width: 100%;
-    height: 32vh; /* Further compacted */
+    height: 32vh;
     background: #fdf2f8;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-    transition: background-color 0.3s ease;
 }
 
 .soft-circle {
@@ -190,7 +237,6 @@ body {
     background: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     z-index: 1;
-    transition: background-color 0.3s ease;
 }
 
 #menu-emoji {
@@ -221,7 +267,7 @@ body {
 .post-tag { color: #00376b; }
 .recommended-label { font-weight: 700; margin: 0 4px; }
 
-.post-description { margin: 4px 0; font-size: 13px; color: var(--text-color); }
+.post-description { margin: 4px 0; font-size: 13px; color: var(--text-color); text-align: justify; word-break: keep-all; }
 
 .post-lucky-tip { 
     font-size: 11px; 
@@ -236,9 +282,14 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-    .post-lucky-tip { background: rgba(255,255,255,0.04); border-left-color: #fbc2eb; }
-    .soft-circle { background: rgba(0, 0, 0, 0.2); }
+    body:not(.light-theme) .post-lucky-tip { background: rgba(255,255,255,0.04); border-left-color: #fbc2eb; }
+    body:not(.light-theme) .soft-circle { background: rgba(0, 0, 0, 0.2); }
+    body:not(.light-theme) .post-media { background: #2d242d; }
 }
+
+body.dark-theme .post-lucky-tip { background: rgba(255,255,255,0.04); border-left-color: #fbc2eb; }
+body.dark-theme .soft-circle { background: rgba(0, 0, 0, 0.2); }
+body.dark-theme .post-media { background: #2d242d; }
 
 .post-time { font-size: 9px; color: var(--secondary-text); text-transform: uppercase; margin-top: 4px; }
 .post-footer-btn { padding: 8px 12px; border-top: 1px solid rgba(0,0,0,0.05); }
@@ -281,7 +332,6 @@ footer { padding: 15px; text-align: center; color: white; font-size: 0.75rem; }
 }
 
 .story-item.active .story-circle {
-    background: var(--insta-gradient);
     animation: storyPop 0.3s ease-out;
 }
 

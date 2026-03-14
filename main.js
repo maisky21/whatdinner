@@ -148,6 +148,43 @@ const MENU_DATA = [
         sideDish: '자스민 차', sideDish_en: 'Jasmine Tea', bgColor: '#f5fff5' 
     },
 
+    // 아시안 (New Category)
+    { 
+        name: '쌀국수', name_en: 'Pho', icon: '🍜', category: '아시안', 
+        fortune: '맑고 깊은 육수처럼 오늘 당신의 통찰력이 매우 깊어지는 날입니다. 복잡한 상황에서도 핵심을 꿰뚫어 보는 지혜가 생길 거예요. 몸을 따뜻하게 유지할 때 운이 더 좋아집니다.', 
+        fortune_en: 'Like the clear and deep broth, your insight is very sharp today. Wisdom to see through complex situations will emerge. Luck increases when you keep your body warm.', 
+        luckyTip: '고수를 듬뿍 넣어 이국적인 풍미를 즐겨보세요.', luckyTip_en: 'Add plenty of cilantro for an exotic flavor.', 
+        sideDish: '짜조', sideDish_en: 'Spring Rolls', bgColor: '#f5fffb' 
+    },
+    { 
+        name: '팟타이', name_en: 'Pad Thai', icon: '🥡', category: '아시안', 
+        fortune: '달콤, 새콤, 짭짤한 맛의 조화처럼 오늘 당신에게는 다채로운 즐거움이 가득할 것입니다. 따분할 틈 없는 유쾌한 하루가 예상되니 에너지를 마음껏 발산해보세요.', 
+        fortune_en: 'Like the harmony of sweet, sour, and salty flavors, colorful joys will fill your day. Expect a pleasant day without a moment of boredom.', 
+        luckyTip: '땅콩 가루를 듬뿍 뿌려 고소함을 극대화하세요.', luckyTip_en: 'Sprinkle plenty of peanut powder for nuttiness.', 
+        sideDish: '텃만쿵', sideDish_en: 'Shrimp Cakes', bgColor: '#fffdf5' 
+    },
+    { 
+        name: '나시고랭', name_en: 'Nasi Goreng', icon: '🍛', category: '아시안', 
+        fortune: '풍부한 향신료의 매력처럼 당신의 숨겨진 재능이 주위의 이목을 끌게 됩니다. 자신을 표현하는 데 주저하지 마세요. 당신의 독특함이 곧 경쟁력이 되는 날입니다.', 
+        fortune_en: 'Like the charm of rich spices, your hidden talents will attract attention. Don\'t hesitate to express yourself. Your uniqueness is your strength today.', 
+        luckyTip: '반숙 계란 후라이를 터뜨려 밥과 함께 비벼 드세요.', luckyTip_en: 'Break the sunny-side-up egg and mix it with the rice.', 
+        sideDish: '사테', sideDish_en: 'Satay', bgColor: '#fffaf5' 
+    },
+    { 
+        name: '분짜', name_en: 'Bun Cha', icon: '🥗', category: '아시안', 
+        fortune: '새콤한 소스에 적셔 먹는 신선함처럼 정체된 일상에 활력을 불어넣을 새로운 소식이 들려옵니다. 가벼운 발걸음으로 새로운 장소를 방문해보는 것도 좋습니다.', 
+        fortune_en: 'Like the freshness of dipping in sour sauce, new news will energize your stagnant daily life. It\'s also good to visit new places with light steps.', 
+        luckyTip: '숯불 고기와 야채를 듬뿍 곁들여 풍성하게 즐기세요.', luckyTip_en: 'Enjoy with plenty of grilled meat and vegetables.', 
+        sideDish: '넴', sideDish_en: 'Nem', bgColor: '#f5fff5' 
+    },
+    { 
+        name: '똠얌꿍', name_en: 'Tom Yum Goong', icon: '🍲', category: '아시안', 
+        fortune: '강렬하고 독특한 풍미처럼 오늘 당신은 독보적인 존재감을 과시하게 됩니다. 남들이 생각지 못한 창의적인 해결책으로 위기를 기회로 바꿀 수 있는 운세입니다.', 
+        fortune_en: 'Like the intense and unique flavor, you will show an unrivaled presence today. You can turn crises into opportunities with creative solutions.', 
+        luckyTip: '매콤하고 시큼한 국물로 입맛을 확실히 깨워보세요.', luckyTip_en: 'Wake up your appetite with the spicy and sour soup.', 
+        sideDish: '공공치엔', sideDish_en: 'Morning Glory Stir-fry', bgColor: '#fff5f5' 
+    },
+
     // 간단식
     { 
         name: '에그 토스트', name_en: 'Egg Toast', icon: '🥪', category: '간단식', 
@@ -188,14 +225,14 @@ const MENU_DATA = [
 
 const i18n = {
     ko: {
-        cat_all: '전체', cat_kr: '한식', cat_we: '양식', cat_jp: '일식', cat_ch: '중식', cat_si: '간단식',
+        cat_all: '전체', cat_kr: '한식', cat_we: '양식', cat_jp: '일식', cat_ch: '중식', cat_si: '간단식', cat_as: '아시안',
         main_title: '오늘의 미식 운세', main_subtitle: '오늘 저녁, 당신의 운명이 이끄는 맛은?', btn_draw: '운세 뽑기',
         location: '미식의 우주', likes_prefix: '좋아요', likes_suffix: '개', just_now: '방금 전',
         btn_retry: '다른 운세 확인하기', footer_about: '서비스 소개', footer_privacy: '개인정보처리방침', footer_terms: '이용약관',
         lucky_tip_label: '오늘의 행운 팁', side_dish_label: '찰떡궁합 사이드 메뉴', recommended_label: '오늘의 추천 메뉴'
     },
     en: {
-        cat_all: 'All', cat_kr: 'Korean', cat_we: 'Western', cat_jp: 'Japanese', cat_ch: 'Chinese', cat_si: 'Simple',
+        cat_all: 'All', cat_kr: 'Korean', cat_we: 'Western', cat_jp: 'Japanese', cat_ch: 'Chinese', cat_si: 'Simple', cat_as: 'Asian',
         main_title: 'Gourmet Fortune', main_subtitle: 'What is your destiny for dinner tonight?', btn_draw: 'Draw Fortune',
         location: 'Space of Taste', likes_prefix: 'Likes', likes_suffix: '', just_now: 'Just now',
         btn_retry: 'Check Other Fortune', footer_about: 'About', footer_privacy: 'Privacy', footer_terms: 'Terms',
@@ -205,25 +242,27 @@ const i18n = {
 
 let currentLang = 'ko';
 let currentCategory = '전체';
+let isDarkMode = false;
 
-// 사운드 효과 정의
+// 사운드 효과 정의 (볼륨 0.1 고정)
 const sounds = {
     pop: new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3'),
     whoosh: new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3')
 };
 
-// 사운드 재생 함수 (볼륨 조절 포함)
+// 사운드 재생 함수 (볼륨 0.1 고정)
 function playSound(type) {
     const sound = sounds[type];
     if (sound) {
         sound.currentTime = 0;
-        sound.volume = 0.4;
+        sound.volume = 0.1; // Requirement: Fixed at 0.1
         sound.play().catch(e => console.log('Audio playback blocked by browser policy'));
     }
 }
 
 // DOM 요소
-const app = document.getElementById('app');
+const body = document.body;
+const themeToggle = document.getElementById('theme-toggle');
 const homeScreen = document.getElementById('home-screen');
 const resultScreen = document.getElementById('result-screen');
 const drawBtn = document.getElementById('draw-btn');
@@ -239,6 +278,33 @@ const menuFortuneElem = document.getElementById('menu-fortune');
 const menuLuckyTipElem = document.getElementById('menu-lucky-tip');
 const postMedia = document.querySelector('.post-media');
 const resultCard = document.querySelector('.insta-post');
+
+// 테마 초기화 및 전환
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        applyTheme(true);
+    }
+}
+
+function applyTheme(dark) {
+    isDarkMode = dark;
+    if (dark) {
+        body.classList.add('dark-theme');
+        body.classList.remove('light-theme');
+        themeToggle.textContent = '🌙';
+    } else {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        themeToggle.textContent = '🌞';
+    }
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
+
+themeToggle.addEventListener('click', () => {
+    playSound('pop');
+    applyTheme(!isDarkMode);
+});
 
 // 언어 전환 로직
 function toggleLanguage() {
@@ -285,10 +351,10 @@ function showRecommendation() {
     homeScreen.classList.add('hidden');
     resultScreen.classList.remove('hidden');
     
-    // 애니메이션 리셋을 위해 클래스 제거 후 다시 추가
+    // 애니메이션 리셋
     resultCard.classList.remove('animate-slide-up');
     menuEmoji.classList.remove('animate-pop');
-    void resultCard.offsetWidth; // 리플로우 강제
+    void resultCard.offsetWidth;
     resultCard.classList.add('animate-slide-up');
     menuEmoji.classList.add('animate-pop');
     
@@ -300,8 +366,12 @@ function showRecommendation() {
     menuNameElem.textContent = currentLang === 'ko' ? menu.name : menu.name_en;
     menuFortuneElem.textContent = currentLang === 'ko' ? menu.fortune : menu.fortune_en;
     
-    // 배경색 적용
-    postMedia.style.backgroundColor = menu.bgColor || '#fdf2f8';
+    // 배경색 적용 (다크모드 대응)
+    if (!isDarkMode) {
+        postMedia.style.backgroundColor = menu.bgColor || '#fdf2f8';
+    } else {
+        postMedia.style.backgroundColor = ''; // 다크모드에서는 CSS 변수 사용
+    }
     
     const tipLabel = i18n[currentLang].lucky_tip_label;
     const tipContent = currentLang === 'ko' ? menu.luckyTip : menu.luckyTip_en;
@@ -330,4 +400,5 @@ retryBtn.addEventListener('click', showRecommendation);
 langToggle.addEventListener('click', toggleLanguage);
 
 // 초기화
+initTheme();
 updateUIStrings();
