@@ -5,31 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>오늘의 미식 운세 - 저녁 메뉴 추천</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div id="app">
+        <!-- 카테고리 스토리 탭 (상단 고정) -->
+        <header id="story-tabs" class="story-container">
+            <div class="story-item active" data-category="전체">
+                <div class="story-circle"><span class="story-icon">✨</span></div>
+                <span class="story-label">전체</span>
+            </div>
+            <div class="story-item" data-category="한식">
+                <div class="story-circle"><span class="story-icon">🥘</span></div>
+                <span class="story-label">한식</span>
+            </div>
+            <div class="story-item" data-category="양식">
+                <div class="story-circle"><span class="story-icon">🍝</span></div>
+                <span class="story-label">양식</span>
+            </div>
+            <div class="story-item" data-category="일식">
+                <div class="story-circle"><span class="story-icon">🍣</span></div>
+                <span class="story-label">일식</span>
+            </div>
+            <div class="story-item" data-category="중식">
+                <div class="story-circle"><span class="story-icon">🥟</span></div>
+                <span class="story-label">중식</span>
+            </div>
+            <div class="story-item" data-category="간단식">
+                <div class="story-circle"><span class="story-icon">🥪</span></div>
+                <span class="story-label">간단식</span>
+            </div>
+        </header>
+
         <!-- 초기 화면 -->
         <main id="home-screen" class="centered-content">
-            <div class="intro-card">
+            <div class="glass-card intro-card">
                 <h1 class="main-title">오늘의 미식 운세</h1>
                 <p class="subtitle">오늘 저녁, 당신의 운명이 이끄는 맛은?</p>
                 <button id="draw-btn" class="primary-btn">운세 뽑기</button>
             </div>
         </main>
 
-        <!-- 결과 화면 -->
+        <!-- 결과 화면 (Instagram Post Style) -->
         <main id="result-screen" class="centered-content hidden">
-            <div class="result-card">
-                <div class="emoji-container">
+            <div class="insta-post result-card">
+                <!-- Post Header -->
+                <div class="post-header">
+                    <div class="user-avatar">✨</div>
+                    <div class="user-info">
+                        <span class="username">cosmic_fortune</span>
+                        <span class="location">미식의 우주</span>
+                    </div>
+                    <div class="post-options"><i class="fas fa-ellipsis-h"></i></div>
+                </div>
+
+                <!-- Post Image (Emoji Container) -->
+                <div class="post-media emoji-container">
                     <span id="menu-emoji"></span>
                 </div>
-                <div class="menu-info">
-                    <span id="menu-category" class="category-tag">한식</span>
-                    <h2 id="menu-name">메뉴명</h2>
-                    <p id="menu-fortune">오늘 당신의 미식 운세는...</p>
+
+                <!-- Post Actions -->
+                <div class="post-actions">
+                    <div class="main-actions">
+                        <i class="far fa-heart heart-btn"></i>
+                        <i class="far fa-comment"></i>
+                        <i class="far fa-paper-plane"></i>
+                    </div>
+                    <div class="bookmark-action">
+                        <i class="far fa-bookmark"></i>
+                    </div>
                 </div>
-                <div class="action-buttons">
-                    <button id="retry-btn" class="secondary-btn">다시 뽑기</button>
+
+                <!-- Post Content -->
+                <div class="post-content">
+                    <div class="likes-count">좋아요 1,234개</div>
+                    <div class="caption">
+                        <span class="caption-user">cosmic_fortune</span>
+                        <span id="menu-category" class="post-tag">#한식</span>
+                        <span id="menu-name" class="post-menu-name">메뉴명</span>
+                        <p id="menu-fortune" class="post-description">오늘 당신의 미식 운세는...</p>
+                    </div>
+                    <div class="post-time">방금 전</div>
+                </div>
+
+                <!-- Post Footer Button -->
+                <div class="post-footer-btn">
+                    <button id="retry-btn" class="secondary-btn">다른 운세 확인하기</button>
                 </div>
             </div>
         </main>
@@ -46,18 +108,18 @@
 
         <!-- 모달 -->
         <div id="modal-about" class="modal hidden">
-            <div class="modal-content">
+            <div class="modal-content glass-card">
                 <span class="close-btn">&times;</span>
                 <h2>서비스 소개</h2>
                 <div class="modal-body">
                     <p>'오늘의 미식 운세'는 매일 반복되는 "오늘 뭐 먹지?"라는 고민을 해결해드리기 위해 탄생했습니다.</p>
-                    <p>당신의 운세에 맞는 완벽한 저녁 메뉴를 세련된 UI와 함께 추천해 드립니다.</p>
+                    <p>당신의 운세에 맞는 완벽한 저녁 메뉴를 인스타그램 감성의 세련된 UI와 함께 추천해 드립니다.</p>
                 </div>
             </div>
         </div>
 
         <div id="modal-privacy" class="modal hidden">
-            <div class="modal-content">
+            <div class="modal-content glass-card">
                 <span class="close-btn">&times;</span>
                 <h2>개인정보처리방침</h2>
                 <div class="modal-body">

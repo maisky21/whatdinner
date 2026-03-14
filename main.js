@@ -1,4 +1,4 @@
-// 메뉴 데이터 정의 (이모지 및 정적 이미지 아이콘 매핑)
+// 메뉴 데이터 정의
 const MENU_DATA = [
     // 한식
     { name: '김치찌개', icon: '🥘', category: '한식', fortune: '칼칼한 국물이 당신의 스트레스를 시원하게 날려줄 거예요.' },
@@ -41,6 +41,8 @@ const homeScreen = document.getElementById('home-screen');
 const resultScreen = document.getElementById('result-screen');
 const drawBtn = document.getElementById('draw-btn');
 const retryBtn = document.getElementById('retry-btn');
+const storyItems = document.querySelectorAll('.story-item');
+const heartBtn = document.querySelector('.heart-btn');
 
 const menuEmoji = document.getElementById('menu-emoji');
 const menuCategory = document.getElementById('menu-category');
@@ -53,14 +55,33 @@ const modalAbout = document.getElementById('modal-about');
 const modalPrivacy = document.getElementById('modal-privacy');
 const closeBtns = document.querySelectorAll('.close-btn');
 
+let currentCategory = '전체';
+
+// 카테고리 선택 로직
+storyItems.forEach(item => {
+    item.addEventListener('click', () => {
+        storyItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        currentCategory = item.dataset.category;
+    });
+});
+
 // 메뉴 추천 로직
 function getRandomMenu() {
-    const randomIndex = Math.floor(Math.random() * MENU_DATA.length);
-    return MENU_DATA[randomIndex];
+    let filteredMenu = MENU_DATA;
+    if (currentCategory !== '전체') {
+        filteredMenu = MENU_DATA.filter(menu => menu.category === currentCategory);
+    }
+    const randomIndex = Math.floor(Math.random() * filteredMenu.length);
+    return filteredMenu[randomIndex];
 }
 
 function showRecommendation() {
-    // 즉각적인 화면 전환 (대기 시간 0초)
+    // 하트 아이콘 초기화
+    heartBtn.classList.remove('fas', 'liked');
+    heartBtn.classList.add('far');
+
+    // 화면 전환
     homeScreen.classList.add('hidden');
     resultScreen.classList.remove('hidden');
     
@@ -68,10 +89,20 @@ function showRecommendation() {
     
     // 데이터 업데이트
     menuEmoji.textContent = menu.icon;
-    menuCategory.textContent = menu.category;
+    menuCategory.textContent = `#${menu.category}`;
     menuName.textContent = menu.name;
     menuFortune.textContent = menu.fortune;
+
+    // 상단으로 스크롤 (결과가 잘 보이게)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// 좋아요 토글
+heartBtn.addEventListener('click', () => {
+    heartBtn.classList.toggle('fas');
+    heartBtn.classList.toggle('far');
+    heartBtn.classList.toggle('liked');
+});
 
 // 모달 제어
 function openModal(modal) {
@@ -96,7 +127,6 @@ closeBtns.forEach(btn => {
     });
 });
 
-// 모달 바깥 클릭 시 닫기
 window.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal')) {
         closeModal(e.target);
