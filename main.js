@@ -262,6 +262,15 @@ function applyTheme(dark) {
         themeToggle.textContent = '🌞';
     }
     localStorage.setItem('theme', dark ? 'dark' : 'light');
+    
+    // 현재 결과 화면이 켜져 있다면 배경색 즉시 업데이트
+    if (!resultScreen.classList.contains('hidden') && window.currentMenu) {
+        if (!dark) {
+            postMedia.style.backgroundColor = window.currentMenu.bgColor || '#fdf2f8';
+        } else {
+            postMedia.style.backgroundColor = ''; 
+        }
+    }
 }
 
 themeToggle.addEventListener('click', () => {
