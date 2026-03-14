@@ -253,3 +253,40 @@ footer { padding: 15px; text-align: center; color: white; font-size: 0.75rem; }
 .footer-links a { color: white; text-decoration: none; margin: 0 5px; opacity: 0.8; }
 
 .hidden { display: none !important; }
+
+/* Animations */
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popScale {
+    0% { transform: scale(0.8); }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes storyPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.animate-slide-up {
+    animation: slideUpFade 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-pop {
+    animation: popScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.story-item.active .story-circle {
+    background: var(--insta-gradient);
+    animation: storyPop 0.3s ease-out;
+}
+
+/* Button Active Feedback */
+.primary-btn:active, .secondary-btn:active {
+    transform: scale(0.96);
+    transition: transform 0.1s;
+}
