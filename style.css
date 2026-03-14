@@ -48,7 +48,7 @@ body {
     flex-direction: column;
     align-items: center;
     color: var(--text-color);
-    overflow: hidden; /* Prevent body scrolling */
+    overflow: hidden;
 }
 
 #app {
@@ -70,41 +70,30 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding: 8px 15px;
     flex-shrink: 0;
+    z-index: 10;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 500px;
-    margin: 0 auto;
 }
 
 .logo-link { text-decoration: none; }
 .logo { font-weight: 800; color: white; font-size: 1.1rem; display: block; }
 
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
+.header-actions { display: flex; align-items: center; gap: 8px; }
 .icon-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; padding: 4px; }
 .lang-btn {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    color: white;
-    padding: 3px 8px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    cursor: pointer;
+    color: white; padding: 3px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; cursor: pointer;
 }
 
 /* Story Tabs */
 .story-container {
     width: 100%;
-    padding: 8px 10px;
+    padding: 10px 10px;
     display: flex;
     gap: 12px;
     justify-content: center;
@@ -131,10 +120,10 @@ body {
     align-items: center;
     padding: 10px;
     overflow: hidden;
+    position: relative;
 }
 
 /* Intro Card */
-.glass-card { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 20px; }
 .intro-card { padding: 35px 20px; text-align: center; width: 100%; }
 .main-title { font-size: 1.7rem; margin-bottom: 8px; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.1); }
 .subtitle { color: white; margin-bottom: 25px; font-size: 0.95rem; opacity: 0.9; }
@@ -144,11 +133,12 @@ body {
     background: var(--card-bg);
     border-radius: var(--border-radius);
     width: 100%;
-    max-height: 100%;
+    max-height: 95%; /* Leave space for footer */
     box-shadow: var(--shadow);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    animation: slideUpFade 0.4s ease-out both;
 }
 
 .post-header { padding: 6px 12px; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -159,7 +149,7 @@ body {
 
 .post-media {
     width: 100%;
-    height: 30vh;
+    height: 28vh;
     background: #fdf2f8;
     display: flex;
     justify-content: center;
@@ -169,26 +159,27 @@ body {
     flex-shrink: 0;
 }
 
-.soft-circle { position: absolute; width: 160px; height: 160px; background: rgba(255, 255, 255, 0.4); border-radius: 50%; z-index: 1; }
-#menu-emoji { font-size: 100px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.12)); z-index: 2; }
+.soft-circle { position: absolute; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.4); border-radius: 50%; z-index: 1; }
+#menu-emoji { font-size: 90px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.12)); z-index: 2; }
 
 .menu-title-section { padding: 8px 12px 2px; text-align: center; flex-shrink: 0; }
-#menu-name { font-size: 1.6rem; font-weight: 800; color: var(--text-color); }
+#menu-name { font-size: 1.5rem; font-weight: 800; color: var(--text-color); }
 
 .post-actions { padding: 4px 12px; display: flex; justify-content: space-between; font-size: 18px; flex-shrink: 0; }
 .main-actions { display: flex; gap: 12px; }
 
-.post-content { padding: 0 12px 6px 12px; flex: 1; overflow-y: auto; }
-.likes-count { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
-.caption { font-size: 12px; line-height: 1.3; }
+.post-content { padding: 0 12px 6px 12px; flex: 1; overflow-y: auto; scrollbar-width: none; }
+.post-content::-webkit-scrollbar { display: none; }
+.likes-count { font-size: 11px; font-weight: 600; margin-bottom: 2px; }
+.caption { font-size: 11.5px; line-height: 1.25; }
 .caption-user { font-weight: 600; margin-right: 6px; }
 .post-tag { color: #00376b; }
-.post-description { margin: 3px 0; }
+.post-description { margin: 2px 0; }
 
 .post-lucky-tip { 
-    font-size: 10.5px; color: var(--secondary-text); padding: 8px; 
+    font-size: 10px; color: var(--secondary-text); padding: 6px 8px; 
     background: rgba(161, 140, 209, 0.06); border-radius: 8px; border-left: 3px solid #a18cd1; 
-    line-height: 1.35; margin-top: 6px;
+    line-height: 1.3; margin-top: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -201,7 +192,7 @@ body.dark-theme .post-lucky-tip { background: rgba(255,255,255,0.04); border-lef
 body.dark-theme .soft-circle { background: rgba(0, 0, 0, 0.2); }
 body.dark-theme .post-media { background: #2d242d; }
 
-.post-time { font-size: 9px; color: var(--secondary-text); text-transform: uppercase; margin-top: 4px; }
+.post-time { font-size: 9px; color: var(--secondary-text); text-transform: uppercase; margin-top: 2px; }
 .post-footer-btn { padding: 8px 12px; border-top: 1px solid rgba(0,0,0,0.05); flex-shrink: 0; }
 
 /* Buttons */
@@ -209,7 +200,7 @@ body.dark-theme .post-media { background: #2d242d; }
 .secondary-btn { width: 100%; padding: 8px; border: 1px solid #dbdbdb; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; background: transparent; color: var(--text-color); }
 
 /* Footer */
-footer { padding: 10px; text-align: center; color: white; font-size: 0.7rem; flex-shrink: 0; }
+footer { width: 100%; padding: 10px; text-align: center; color: white; font-size: 0.65rem; flex-shrink: 0; background: rgba(0,0,0,0.05); }
 .footer-links { margin-bottom: 4px; }
 .footer-links a { color: white; text-decoration: none; margin: 0 4px; opacity: 0.8; }
 
@@ -223,13 +214,13 @@ footer { padding: 10px; text-align: center; color: white; font-size: 0.7rem; fle
 .animate-slide-up { animation: slideUpFade 0.4s ease-out both; }
 .animate-pop { animation: popScale 0.3s ease-out both; }
 
-/* Mobile Optimizations (max-width: 768px) */
+/* Mobile Visibility Optimization (max-width: 768px) */
 @media (max-width: 768px) {
-    .post-media { height: 25vh; }
-    #menu-emoji { font-size: 85px; }
-    .soft-circle { width: 130px; height: 130px; }
-    #menu-name { font-size: 1.4rem; }
-    .post-content { padding: 0 10px 4px 10px; }
-    .caption { font-size: 11.5px; }
-    .post-lucky-tip { font-size: 10px; padding: 6px; }
+    .post-media { height: 22vh; width: 65%; margin: 0 auto; border-radius: 15px; }
+    #menu-emoji { font-size: 70px; }
+    .soft-circle { width: 110px; height: 130px; }
+    #menu-name { font-size: 1.3rem; }
+    .post-content { padding: 0 8px 4px 8px; }
+    .post-lucky-tip { font-size: 9.5px; padding: 5px; }
+    footer { padding: 8px; font-size: 0.6rem; }
 }
