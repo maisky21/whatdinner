@@ -230,6 +230,7 @@ const homeScreen = document.getElementById('home-screen');
 const resultScreen = document.getElementById('result-screen');
 const drawBtn = document.getElementById('draw-btn');
 const retryBtn = document.getElementById('retry-btn');
+const saveBtn = document.getElementById('save-btn');
 const langToggle = document.getElementById('lang-toggle');
 const storyItems = document.querySelectorAll('.story-item');
 const heartBtn = document.querySelector('.heart-btn');
@@ -390,6 +391,44 @@ heartBtn.addEventListener('click', () => {
 drawBtn.addEventListener('click', showRecommendation);
 retryBtn.addEventListener('click', showRecommendation);
 langToggle.addEventListener('click', toggleLanguage);
+
+// 이미지 저장 기능
+saveBtn.addEventListener('click', () => {
+    playSound('pop');
+    
+    // 캡처 옵션 설정
+    const options = {
+        backgroundColor: isDarkMode ? '#1A1625' : '#f8f9fa',
+        scale: 2, // 고해상도
+        logging: false,
+        useCORS: true,
+        borderRadius: 12
+    };
+
+    // 버튼 숨기기 (캡처 시 제외)
+    const footerBtnArea = document.querySelector('.post-footer-btn');
+    footerBtnArea.style.display = 'none';
+    
+    // 캡처 전 스타일 조정 (그림자 등이 잘리거나 왜곡되는 것 방지)
+    const originalShadow = resultCard.style.boxShadow;
+    resultCard.style.boxShadow = 'none';
+    
+    html2canvas(resultCard, options).then(canvas => {
+        // 스타일 복구
+        footerBtnArea.style.display = 'flex';
+        resultCard.style.boxShadow = originalShadow;
+        
+        const link = document.createElement('a');
+        link.download = 'Today_Dinner_Fortune.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    }).catch(err => {
+        console.error('Image saving failed:', err);
+        footerBtnArea.style.display = 'flex';
+        resultCard.style.boxShadow = originalShadow;
+        alert(currentLang === 'ko' ? '이미지 저장에 실패했습니다.' : 'Failed to save image.');
+    });
+});
 
 // 초기화
 initTheme();
