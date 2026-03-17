@@ -192,20 +192,23 @@ const i18n = {
         main_title: '오늘의 미식 운세', main_subtitle: '오늘 저녁, 당신의 운명이 이끄는 맛은?', btn_draw: '운세 뽑기',
         location: '미식의 우주', likes_prefix: '좋아요', likes_suffix: '개', just_now: '방금 전',
         btn_retry: '다른 운세 확인하기', footer_about: '서비스 소개', footer_privacy: '개인정보처리방침', footer_terms: '이용약관',
-        lucky_tip_label: '오늘의 행운 팁', side_dish_label: '찰떡궁합 사이드 메뉴', recommended_label: '오늘의 추천 메뉴'
+        lucky_tip_label: '오늘의 행운 팁', side_dish_label: '찰떡궁합 사이드 메뉴', recommended_label: '오늘의 추천 메뉴',
+        save_title: '이미지 저장', save_guide: '이미지를 길게 눌러 \'사진 앱에 저장\'하거나 공유해 보세요! 📸'
     },
     en: {
         cat_all: 'All', cat_kr: 'Korean', cat_we: 'Western', cat_jp: 'Japanese', cat_ch: 'Chinese', cat_si: 'Simple',
         main_title: 'Gourmet Fortune', main_subtitle: 'What is your destiny for dinner tonight?', btn_draw: 'Draw Fortune',
         location: 'Space of Taste', likes_prefix: 'Likes', likes_suffix: '', just_now: 'Just now',
         btn_retry: 'Draw Again', footer_about: 'About', footer_privacy: 'Privacy', footer_terms: 'Terms',
-        lucky_tip_label: 'Today\'s Lucky Tip', side_dish_label: 'Perfect Side Dish', recommended_label: 'Today\'s Pick'
+        lucky_tip_label: 'Today\'s Lucky Tip', side_dish_label: 'Perfect Side Dish', recommended_label: 'Today\'s Pick',
+        save_title: 'Save Image', save_guide: 'Long-press the image to \'Save to Photos\' or share! 📸'
     }
 };
 
 let currentLang = 'ko';
 let currentCategory = '전체';
 let isDarkMode = false;
+let senderName = '';
 
 // 사운드 효과 정의 (볼륨 0.1 고정)
 const sounds = {
@@ -234,6 +237,8 @@ const saveBtn = document.getElementById('save-btn');
 const langToggle = document.getElementById('lang-toggle');
 const storyItems = document.querySelectorAll('.story-item');
 const heartBtn = document.querySelector('.heart-btn');
+const userNameInput = document.getElementById('user-name');
+const senderDisplay = document.getElementById('sender-display');
 
 const menuEmoji = document.getElementById('menu-emoji');
 const menuCategoryTag = document.getElementById('menu-category');
@@ -242,6 +247,12 @@ const menuFortuneElem = document.getElementById('menu-fortune');
 const menuLuckyTipElem = document.getElementById('menu-lucky-tip');
 const postMedia = document.querySelector('.post-media');
 const resultCard = document.querySelector('.insta-post');
+
+// 모달 요소
+const imageModal = document.getElementById('image-modal');
+const closeModal = document.getElementById('close-modal');
+const closeModalBtn = document.getElementById('close-modal-btn');
+const previewContainer = document.getElementById('preview-container');
 
 // 테마 초기화 및 전환
 function initTheme() {
@@ -293,6 +304,12 @@ function updateUIStrings() {
         const key = el.getAttribute('data-i18n');
         if (texts[key]) el.textContent = texts[key];
     });
+    
+    if (currentLang === 'ko') {
+        userNameInput.placeholder = "보내는 사람 (예: 아빠가, 엄마가)";
+    } else {
+        userNameInput.placeholder = "From (e.g. Dad, Mom)";
+    }
     
     // 만약 결과 화면이 켜져 있다면, 현재 메뉴의 텍스트도 업데이트
     if (!resultScreen.classList.contains('hidden') && window.currentMenu) {
@@ -353,11 +370,21 @@ function updateResultUI(menu) {
         <div class="tip-section"><strong>${tipLabel}:</strong> ${tipContent}</div>
         <div class="side-section" style="margin-top: 6px;"><strong>${sideLabel}:</strong> ${sideContent}</div>
     `;
+
+    // 보내는 사람 표시
+    if (senderName) {
+        senderDisplay.textContent = `From. ${senderName}`;
+        senderDisplay.style.display = 'block';
+    } else {
+        senderDisplay.style.display = 'none';
+    }
 }
 
 function showRecommendation() {
     playSound('whoosh');
     
+    senderName = userNameInput.value.trim();
+
     heartBtn.classList.remove('fas', 'liked');
     heartBtn.classList.add('far');
 
@@ -409,7 +436,7 @@ saveBtn.addEventListener('click', () => {
     const footerBtnArea = document.querySelector('.post-footer-btn');
     footerBtnArea.style.display = 'none';
     
-    // 캡처 전 스타일 조정 (그림자 등이 잘리거나 왜곡되는 것 방지)
+    // 캡처 전 스타일 조정
     const originalShadow = resultCard.style.boxShadow;
     resultCard.style.boxShadow = 'none';
     
@@ -418,10 +445,19 @@ saveBtn.addEventListener('click', () => {
         footerBtnArea.style.display = 'flex';
         resultCard.style.boxShadow = originalShadow;
         
+        const dataUrl = canvas.toDataURL('image/png');
+        
+        // 1. 다운로드 실행 (PC 환경 등 대응)
         const link = document.createElement('a');
         link.download = 'Today_Dinner_Fortune.png';
-        link.href = canvas.toDataURL('image/png');
+        link.href = dataUrl;
         link.click();
+
+        // 2. 모달 팝업 표시 (모바일 환경 롱프레스 저장 대응)
+        previewContainer.innerHTML = `<img src="${dataUrl}" alt="Dinner Fortune Result">`;
+        imageModal.classList.remove('hidden');
+        body.style.overflow = 'hidden'; // 스크롤 방지
+        
     }).catch(err => {
         console.error('Image saving failed:', err);
         footerBtnArea.style.display = 'flex';
@@ -429,6 +465,16 @@ saveBtn.addEventListener('click', () => {
         alert(currentLang === 'ko' ? '이미지 저장에 실패했습니다.' : 'Failed to save image.');
     });
 });
+
+// 모달 닫기
+function closeImageModal() {
+    imageModal.classList.add('hidden');
+    body.style.overflow = 'auto';
+}
+
+closeModal.addEventListener('click', closeImageModal);
+closeModalBtn.addEventListener('click', closeImageModal);
+imageModal.querySelector('.modal-overlay').addEventListener('click', closeImageModal);
 
 // 초기화
 initTheme();

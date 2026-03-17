@@ -142,7 +142,24 @@ body {
 /* Intro Card */
 .intro-card { padding: 35px 20px; text-align: center; width: 100%; }
 .main-title { font-size: 1.7rem; margin-bottom: 8px; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-.subtitle { color: white; margin-bottom: 25px; font-size: 0.95rem; opacity: 0.9; }
+.subtitle { color: white; margin-bottom: 20px; font-size: 0.95rem; opacity: 0.9; }
+
+/* Input Group */
+.input-group { margin-bottom: 25px; width: 100%; }
+#user-name {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+#user-name::placeholder { color: rgba(255, 255, 255, 0.6); }
+#user-name:focus { background: rgba(255, 255, 255, 0.2); border-color: white; }
 
 /* Insta Post */
 .insta-post {
@@ -191,6 +208,15 @@ body {
 .post-tag { color: #00376b; }
 .post-description { margin: 8px 0; word-break: keep-all; line-height: 1.6; }
 
+.sender-info { 
+    margin-top: 10px; 
+    font-size: 12px; 
+    font-weight: 600; 
+    color: var(--secondary-text);
+    text-align: right;
+    font-style: italic;
+}
+
 .post-lucky-tip { 
     font-size: 11.5px; color: var(--secondary-text); padding: 12px; 
     background: rgba(161, 140, 209, 0.06); border-radius: 8px; border-left: 3px solid var(--btn-purple); 
@@ -214,6 +240,7 @@ body.dark-theme .post-tag { color: #D4BFFF; }
 
 /* Buttons */
 .primary-btn { width: 100%; padding: 18px; border: none; border-radius: 12px; font-size: 1.5rem; font-weight: 700; cursor: pointer; background: #F3E5F5; color: #4A148C; box-shadow: 0 4px 15px rgba(74, 20, 140, 0.15); }
+.primary-btn.mini { padding: 12px; font-size: 1rem; }
 .secondary-btn { flex: 1; padding: 18px 16px; border: 1px solid #dbdbdb; border-radius: 12px; font-size: 1.3rem; font-weight: 700; cursor: pointer; background: transparent; color: var(--text-color); }
 
 .icon-save-btn {
@@ -239,6 +266,86 @@ body.dark-theme .secondary-btn, body.dark-theme .icon-save-btn { border-color: r
 @media (prefers-color-scheme: dark) {
     body:not(.light-theme) .secondary-btn, body:not(.light-theme) .icon-save-btn { border-color: rgba(255,255,255,0.1); }
 }
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    animation: slideUpFade 0.4s ease-out;
+}
+
+.modal-header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.modal-header h3 { font-size: 1.1rem; color: var(--text-color); }
+
+.close-btn {
+    background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--secondary-text);
+}
+
+.modal-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#preview-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+#preview-container img {
+    width: 100%;
+    display: block;
+}
+
+.guide-text {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    text-align: center;
+    line-height: 1.4;
+    word-break: keep-all;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+body.dark-theme .modal-header, body.dark-theme .modal-footer { border-color: rgba(255,255,255,0.1); }
 
 /* Footer */
 footer { width: 100%; padding: 20px 10px 60px; text-align: center; color: white; font-size: 0.75rem; flex-shrink: 0; background: rgba(0,0,0,0.02); }
