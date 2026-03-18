@@ -63,6 +63,7 @@
                 <p class="subtitle" data-i18n="main_subtitle">오늘 저녁, 당신의 운명이 이끄는 맛은?</p>
                 <div class="input-group">
                     <input type="text" id="user-name" placeholder="보내는 사람 (예: 아빠가, 엄마가)" maxlength="10">
+                    <button id="random-name-btn" class="random-btn" aria-label="Random Nickname">🎲</button>
                 </div>
                 <button id="draw-btn" class="primary-btn" data-i18n="btn_draw">운세 뽑기</button>
             </div>
@@ -139,10 +140,10 @@
                     <button id="close-modal" class="close-btn">&times;</button>
                 </div>
                 <div class="modal-body">
+                    <p class="guide-text animate-glow" data-i18n="save_guide">이미지를 1초간 꾹 눌러 '사진 앱에 저장'하세요! 📸</p>
                     <div id="preview-container">
                         <!-- Generated image will be inserted here -->
                     </div>
-                    <p class="guide-text" data-i18n="save_guide">이미지를 길게 눌러 '사진 앱에 저장'하거나 공유해 보세요! 📸</p>
                 </div>
                 <div class="modal-footer">
                     <button id="close-modal-btn" class="primary-btn mini">닫기</button>

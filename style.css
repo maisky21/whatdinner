@@ -145,9 +145,12 @@ body {
 .subtitle { color: white; margin-bottom: 20px; font-size: 0.95rem; opacity: 0.9; }
 
 /* Input Group */
-.input-group { margin-bottom: 25px; width: 100%; }
+.input-group { 
+    margin-bottom: 25px; width: 100%; 
+    display: flex; gap: 10px; align-items: center;
+}
 #user-name {
-    width: 100%;
+    flex: 1;
     padding: 12px 15px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -160,6 +163,16 @@ body {
 }
 #user-name::placeholder { color: rgba(255, 255, 255, 0.6); }
 #user-name:focus { background: rgba(255, 255, 255, 0.2); border-color: white; }
+
+.random-btn {
+    width: 45px; height: 45px; border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white; font-size: 1.2rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+}
+.random-btn:active { transform: scale(0.9); background: rgba(255, 255, 255, 0.2); }
 
 /* Insta Post */
 .insta-post {
@@ -333,11 +346,23 @@ body.dark-theme .secondary-btn, body.dark-theme .icon-save-btn { border-color: r
 }
 
 .guide-text {
-    font-size: 0.9rem;
-    color: var(--secondary-text);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent-color);
     text-align: center;
     line-height: 1.4;
     word-break: keep-all;
+}
+
+body.dark-theme .guide-text { color: #80d8ff; }
+
+.animate-glow {
+    animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from { opacity: 0.8; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); text-shadow: 0 0 10px rgba(0, 149, 246, 0.3); }
 }
 
 .modal-footer {

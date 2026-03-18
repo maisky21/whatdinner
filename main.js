@@ -193,7 +193,7 @@ const i18n = {
         location: '미식의 우주', likes_prefix: '좋아요', likes_suffix: '개', just_now: '방금 전',
         btn_retry: '다른 운세 확인하기', footer_about: '서비스 소개', footer_privacy: '개인정보처리방침', footer_terms: '이용약관',
         lucky_tip_label: '오늘의 행운 팁', side_dish_label: '찰떡궁합 사이드 메뉴', recommended_label: '오늘의 추천 메뉴',
-        save_title: '이미지 저장', save_guide: '이미지를 길게 눌러 \'사진 앱에 저장\'하거나 공유해 보세요! 📸'
+        save_title: '이미지 저장', save_guide: '이미지를 1초간 꾹 눌러 \'사진 앱에 저장\'하세요! 📸'
     },
     en: {
         cat_all: 'All', cat_kr: 'Korean', cat_we: 'Western', cat_jp: 'Japanese', cat_ch: 'Chinese', cat_si: 'Simple',
@@ -201,7 +201,7 @@ const i18n = {
         location: 'Space of Taste', likes_prefix: 'Likes', likes_suffix: '', just_now: 'Just now',
         btn_retry: 'Draw Again', footer_about: 'About', footer_privacy: 'Privacy', footer_terms: 'Terms',
         lucky_tip_label: 'Today\'s Lucky Tip', side_dish_label: 'Perfect Side Dish', recommended_label: 'Today\'s Pick',
-        save_title: 'Save Image', save_guide: 'Long-press the image to \'Save to Photos\' or share! 📸'
+        save_title: 'Save Image', save_guide: 'Long-press the image for 1s to \'Save to Photos\'! 📸'
     }
 };
 
@@ -209,6 +209,10 @@ let currentLang = 'ko';
 let currentCategory = '전체';
 let isDarkMode = false;
 let senderName = '';
+
+const randomNicknames = [
+    '아빠가', '엄마가', '여보가', '딸이', '아들이', '찐친이', '동생이', '언니가', '오빠가', '부장님이'
+];
 
 // 사운드 효과 정의 (볼륨 0.1 고정)
 const sounds = {
@@ -238,6 +242,7 @@ const langToggle = document.getElementById('lang-toggle');
 const storyItems = document.querySelectorAll('.story-item');
 const heartBtn = document.querySelector('.heart-btn');
 const userNameInput = document.getElementById('user-name');
+const randomNameBtn = document.getElementById('random-name-btn');
 const senderDisplay = document.getElementById('sender-display');
 
 const menuEmoji = document.getElementById('menu-emoji');
@@ -325,6 +330,13 @@ storyItems.forEach(item => {
         item.classList.add('active');
         currentCategory = item.dataset.category;
     });
+});
+
+// 랜덤 닉네임
+randomNameBtn.addEventListener('click', () => {
+    playSound('pop');
+    const idx = Math.floor(Math.random() * randomNicknames.length);
+    userNameInput.value = randomNicknames[idx];
 });
 
 // 메뉴 추천 로직
@@ -447,13 +459,8 @@ saveBtn.addEventListener('click', () => {
         
         const dataUrl = canvas.toDataURL('image/png');
         
-        // 1. 다운로드 실행 (PC 환경 등 대응)
-        const link = document.createElement('a');
-        link.download = 'Today_Dinner_Fortune.png';
-        link.href = dataUrl;
-        link.click();
-
-        // 2. 모달 팝업 표시 (모바일 환경 롱프레스 저장 대응)
+        // 모달 팝업 표시 (모바일 환경 롱프레스 저장 대응)
+        // 파일 다운로드는 제거 (모바일 대응 최우선)
         previewContainer.innerHTML = `<img src="${dataUrl}" alt="Dinner Fortune Result">`;
         imageModal.classList.remove('hidden');
         body.style.overflow = 'hidden'; // 스크롤 방지
