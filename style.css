@@ -411,3 +411,29 @@ footer { width: 100%; padding: 20px 10px 60px; text-align: center; color: white;
     
     footer { padding: 20px 10px 50px; font-size: 0.7rem; }
 }
+
+/* Mobile Optimizations (max-width: 600px) - One Screen Fit */
+@media (max-width: 600px) {
+    .insta-post { 
+        max-height: 80vh; 
+        margin-top: 5px;
+    }
+    .post-media { 
+        height: 14vh; 
+        width: 48%; 
+    }
+    #menu-emoji { font-size: 40px; } 
+    .soft-circle { width: 80px; height: 80px; }
+    
+    .menu-title-section { padding: 2px 12px 0px; } 
+    #menu-name { font-size: 1.1rem; } 
+    
+    .post-content { padding: 0 12px 2px 12px; }
+    .post-description { margin: 1px 0; font-size: 10.5px; line-height: 1.3; } 
+    .post-lucky-tip { margin-top: 2px; padding: 4px; font-size: 9px; } 
+    
+    .post-footer-btn { padding: 4px 12px; }
+    .primary-btn { padding: 8px; font-size: 0.95rem; }
+    .secondary-btn { padding: 8px; font-size: 0.95rem; }
+    .icon-save-btn { width: 36px; height: 36px; font-size: 1.1rem; }
+}

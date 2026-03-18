@@ -193,7 +193,7 @@ const i18n = {
         location: '미식의 우주', likes_prefix: '좋아요', likes_suffix: '개', just_now: '방금 전',
         btn_retry: '다른 운세 확인하기', footer_about: '서비스 소개', footer_privacy: '개인정보처리방침', footer_terms: '이용약관',
         lucky_tip_label: '오늘의 행운 팁', side_dish_label: '찰떡궁합 사이드 메뉴', recommended_label: '오늘의 추천 메뉴',
-        save_title: '이미지 저장', save_guide: '이미지를 1초간 꾹 눌러 \'사진 앱에 저장\'하세요! 📸'
+        save_title: '이미지 저장', save_guide: '이미지를 꾹 눌러 저장하세요! 📸'
     },
     en: {
         cat_all: 'All', cat_kr: 'Korean', cat_we: 'Western', cat_jp: 'Japanese', cat_ch: 'Chinese', cat_si: 'Simple',
@@ -201,7 +201,7 @@ const i18n = {
         location: 'Space of Taste', likes_prefix: 'Likes', likes_suffix: '', just_now: 'Just now',
         btn_retry: 'Draw Again', footer_about: 'About', footer_privacy: 'Privacy', footer_terms: 'Terms',
         lucky_tip_label: 'Today\'s Lucky Tip', side_dish_label: 'Perfect Side Dish', recommended_label: 'Today\'s Pick',
-        save_title: 'Save Image', save_guide: 'Long-press the image for 1s to \'Save to Photos\'! 📸'
+        save_title: 'Save Image', save_guide: 'Long-press the image to save! 📸'
     }
 };
 
