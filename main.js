@@ -608,3 +608,4 @@ imageModal.querySelector('.modal-overlay').addEventListener('click', closeImageM
 // 초기화
 initTheme();
 updateUIStrings();
+// Sync force commit
