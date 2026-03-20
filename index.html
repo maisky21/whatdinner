@@ -90,6 +90,7 @@
 
                 <!-- Menu Title Section (Large & Bold) -->
                 <div class="menu-title-section">
+                    <span class="recommended-text" data-i18n="recommended_label">오늘의 추천 메뉴</span>
                     <h2 id="menu-name">메뉴명</h2>
                 </div>
 
@@ -105,20 +106,40 @@
                     </div>
                 </div>
 
-                <!-- Post Content -->
                 <div class="post-content">
                     <div class="likes-count"><span data-i18n="likes_prefix">좋아요</span> 1,234<span data-i18n="likes_suffix">개</span></div>
                     <div class="caption">
                         <span class="caption-user">cosmic_fortune</span>
                         <span id="menu-category" class="post-tag">#한식</span>
-                        <span class="recommended-text" data-i18n="recommended_label">오늘의 추천 메뉴</span>
-                        <p id="menu-fortune" class="post-description">오늘 당신의 미식 운세는...</p>
+                    </div>
+
+                    <!-- Recipe Section -->
+                    <div class="result-section">
+                        <div class="section-title"><span id="recipe-label" data-i18n="recipe_label">조리법</span></div>
+                        <p id="menu-recipe" class="post-description"></p>
+                    </div>
+
+                    <!-- Nutrition Section -->
+                    <div class="result-section">
+                        <div class="section-title"><span id="nutrition-label" data-i18n="nutrition_label">영양 성분</span></div>
+                        <p id="menu-nutrition" class="post-description"></p>
+                    </div>
+
+                    <!-- Fortune Section -->
+                    <div class="result-section">
+                        <div class="section-title"><span id="fortune-label" data-i18n="fortune_label">미식 운세</span></div>
+                        <p id="menu-fortune" class="post-description"></p>
+                    </div>
+
+                    <!-- Lucky Tip & Side Section -->
+                    <div class="result-section">
                         <div id="menu-lucky-tip" class="post-lucky-tip">
                             <!-- JS will populate this -->
                         </div>
-                        <div id="sender-display" class="sender-info">
-                            <!-- JS will populate this if name is provided -->
-                        </div>
+                    </div>
+
+                    <div id="sender-display" class="sender-info">
+                        <!-- JS will populate this if name is provided -->
                     </div>
                     <div class="post-time" data-i18n="just_now">방금 전</div>
                 </div>
