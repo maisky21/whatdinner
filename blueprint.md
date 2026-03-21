@@ -29,7 +29,9 @@
    - **ads.txt 추가**: 루트 폴더에 Adsense 인증을 위한 `ads.txt` 파일 생성 및 데이터 입력.
    - **Cloudflare 설정 보완**: `_redirects` 파일을 생성하여 `/ads.txt` 경로가 `index.html` 등으로 리다이렉트되지 않고 200 상태 코드로 직접 서비스되도록 강제 설정.
 5. **Google Analytics 4 (GA4) 연동**:
-   - 모든 서비스 페이지(`index.html`, `about.html`, `privacy.html`, `terms.html`)의 `<head>` 태그 최상단에 GA4 추적 코드(ID: G-0DTR26JE6T)를 삽입하여 방문자 분석 환경 구축 완료.
+   - 모든 서비스 페이지의 `<head>` 태그 최상단에 GA4 추적 코드를 삽입하여 방문자 분석 환경 구축 완료.
+6. **Open Graph (OG) 태그 추가**:
+   - 소셜 미디어 공유 시 가독성과 클릭률을 높이기 위해 `index.html`에 OG 태그(제목, 설명, 이미지)를 추가함.
 
 ## 향후 계획
 - 더 다양한 메뉴 데이터 확충.
